@@ -7,4 +7,5 @@ Pod::Spec.new do |s|
   s.authors = 'Chris'  
   s.source  = { :git => 'https://github.com/chrisray108/CRInputView.git', :tag => '0.0.1'}  
   s.platform = :ios, '8.0' 
+  s.source_files = 'CRInputView/**/*.{h,m}' 
 end 
