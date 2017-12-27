@@ -159,7 +159,9 @@
 }
 
 - (void)fitToScrollView{
-    BOOL scrollToBottom = self.contentOffset.y == self.contentSize.height - self.frame.size.height;
+    
+    BOOL scrollToBottom = self.text.length&&(self.contentOffset.y == self.contentSize.height - self.frame.size.height);
+    
     CGSize actualTextViewSize = [self measureTextViewSize];
     CGRect oldScrollViewFrame = self.frame;
     
