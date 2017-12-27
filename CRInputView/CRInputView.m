@@ -13,6 +13,7 @@
 {
     UIEdgeInsets _growingTextViewEdgeInset;
     UIColor *_toolBarBackgroundColor;
+    UIColor *_inputViewBackgroundColor;
 }
 
 @property (nonatomic,strong) UIView *backgroundView;
@@ -51,6 +52,7 @@
 {
     _growingTextViewEdgeInset = UIEdgeInsetsMake(10, 10, 10, 10);
     _toolBarBackgroundColor = [UIColor lightGrayColor];
+    _inputViewBackgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.5];
 }
 
 - (void)addListener
@@ -77,7 +79,7 @@
     _backgroundView = [[UIView alloc] initWithFrame:self.bounds];
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
     [_backgroundView addGestureRecognizer:gesture];
-    _backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.8];
+    _backgroundView.hidden = YES;
     [self addSubview:_backgroundView];
 }
 
@@ -122,6 +124,12 @@
         _toolBarBackgroundColor = [self.appearance toolBarBackgroundColor];
     }
     self.toolBar.backgroundColor = _toolBarBackgroundColor;
+    
+    if ([self.appearance respondsToSelector:@selector(inputViewBackgroundColor)])
+    {
+        _inputViewBackgroundColor = [self.appearance inputViewBackgroundColor];
+    }
+    _backgroundView.backgroundColor = _inputViewBackgroundColor;
 }
 
 
@@ -138,6 +146,7 @@
     NSDictionary *userInfo = notification.userInfo;
     CGRect endFrame   = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     BOOL isVisiable = endFrame.origin.y != [UIApplication sharedApplication].keyWindow.frame.size.height;
+    self.backgroundView.hidden = !isVisiable;
     CGFloat keyboardHeight = isVisiable? endFrame.size.height: 0;
     [self moveToolBarToBottom:keyboardHeight];
 }

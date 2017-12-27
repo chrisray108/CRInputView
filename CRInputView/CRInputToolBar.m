@@ -14,6 +14,7 @@
     UIReturnKeyType _returnKeyType;
     NSInteger _maxNumberOfLines;
     NSInteger _minNumberOfLines;
+    UIFont *_inputFont;
 }
 
 @property (nonatomic, strong) CRGrowingTextView *growingTextView;
@@ -38,6 +39,7 @@
 {
     _maxNumberOfLines = 6;
     _minNumberOfLines = 4;
+    _inputFont = [UIFont systemFontOfSize:14.0f];
 }
 
 - (NSString *)text
@@ -63,14 +65,24 @@
 - (void)setupGrowingTextView
 {
     _growingTextView = [[CRGrowingTextView alloc] initWithFrame:CGRectZero];
-    _growingTextView.font = [UIFont systemFontOfSize:14.0f];
     _growingTextView.textColor = [UIColor blackColor];
     _growingTextView.backgroundColor = [UIColor whiteColor];
     _growingTextView.layer.cornerRadius = 5.f;
     _growingTextView.layer.borderWidth = .5f;
     _growingTextView.layer.borderColor = [UIColor grayColor].CGColor;
     _growingTextView.textViewDelegate = self;
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGrowingTextView:)];
+    [_growingTextView addGestureRecognizer:gesture];
     [self addSubview:_growingTextView];
+}
+
+
+- (void)onTapGrowingTextView:(UITapGestureRecognizer *)gesture
+{
+    if (gesture.state == UIGestureRecognizerStateEnded && !self.growingTextView.isFirstResponder)
+    {
+        [self.growingTextView becomeFirstResponder];
+    }
 }
 
 - (BOOL)resignFirstResponder
@@ -95,13 +107,19 @@
     {
         _minNumberOfLines = [self.appearance minNumberOfLines];
     }
+    if ([self.appearance respondsToSelector:@selector(inputFont)])
+    {
+        _inputFont = [self.appearance inputFont];
+    }
     NSAttributedString *placeHolder = nil;
     if ([self.appearance respondsToSelector:@selector(placeHolder)])
     {
         placeHolder = [self.appearance placeHolder];
     }
+    
+    self.growingTextView.font = _inputFont;
     self.growingTextView.maxNumberOfLines = _maxNumberOfLines;
-    self.growingTextView.minNumberOfLines = _minNumberOfLines;
+    self.growingTextView.minNumberOfLines = _minNumberOfLines;    
     self.growingTextView.placeholderAttributedText = placeHolder;
     self.growingTextView.returnKeyType = _returnKeyType;
     CGRect frame = {CGPointZero,[_growingTextView intrinsicContentSize]};

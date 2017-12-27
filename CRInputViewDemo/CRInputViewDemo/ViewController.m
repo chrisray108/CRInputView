@@ -34,9 +34,29 @@
     return UIReturnKeyDone;
 }
 
+- (NSInteger)maxNumberOfLines
+{
+    return 4;
+}
+
+- (NSInteger)minNumberOfLines
+{
+    return 3;
+}
+
 - (NSAttributedString *)placeHolder
 {
     return [[NSAttributedString alloc] initWithString:@"请输入文本"];
+}
+
+- (UIColor *)inputViewBackgroundColor
+{
+    return [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+}
+
+- (UIFont *)inputFont
+{
+    return [UIFont systemFontOfSize:11.f];
 }
 
 

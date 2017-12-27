@@ -14,19 +14,46 @@
 
 @optional
 
-- (CGSize)toolBarSize;
-
+/**
+ *  输入栏颜色
+ */
 - (UIColor *)toolBarBackgroundColor;
 
+/**
+ *  键盘弹出后整个页面的背景色
+ */
+- (UIColor *)inputViewBackgroundColor;
+
+/**
+ *  输入框距整个输入栏的边距，改变输入框大小请改变 minNumberOfLines 的值，
+ *  输入栏的大小会根据给定边距自动计算
+ */
 - (UIEdgeInsets)growingTextViewEdgeInset;
 
+/**
+ *  键盘返回按钮样式
+ */
 - (UIReturnKeyType)returnKeyType;
 
+/**
+ *  输入框最大行数，超过这个行数输入框将不会继续变大
+ */
 - (NSInteger)maxNumberOfLines;
 
+/**
+ *  输入框最小行数，改变这个行数会改变输入框的初始大小
+ */
 - (NSInteger)minNumberOfLines;
 
+/**
+ *  输入框初始占位提示文本
+ */
 - (NSAttributedString *)placeHolder;
+
+/**
+ *  输入框字体
+ */
+- (UIFont *)inputFont;
 
 @end
 
