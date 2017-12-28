@@ -8,10 +8,19 @@
 
 #import "CRInputDefine.h"
 
+/**
+ *  输入控件
+ */
 @interface CRInputView : UIView
 
+/**
+ *  外观控制器
+ */
 @property (nonatomic, weak) id<CRInputAppearance> appearance;
 
+/**
+ *  动作反馈
+ */
 @property (nonatomic, weak) id<CRInputAction> action;
 
 
