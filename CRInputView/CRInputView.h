@@ -23,6 +23,11 @@
  */
 @property (nonatomic, weak) id<CRInputAction> action;
 
+/**
+ *  输入栏控件位置大小
+ */
+@property (nonatomic, assign,readonly) CGRect toolBarFrame;
+
 
 /**
  *  弹出键盘
@@ -33,7 +38,6 @@
  *  隐藏键盘
  */
 - (void)hideKeyboard;
-
 
 /**
  *  将输入栏挪到指定高度

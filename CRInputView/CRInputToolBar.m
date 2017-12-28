@@ -34,6 +34,13 @@
     return self;
 }
 
+- (void)willMoveToSuperview:(UIView *)newSuperview
+{
+    if (newSuperview)
+    {
+        [self setupAppearance];
+    }
+}
 
 - (void)setupConstant
 {
@@ -68,8 +75,8 @@
     _growingTextView.textColor = [UIColor blackColor];
     _growingTextView.backgroundColor = [UIColor whiteColor];
     _growingTextView.layer.cornerRadius = 5.f;
-    _growingTextView.layer.borderWidth = .5f;
-    _growingTextView.layer.borderColor = [UIColor grayColor].CGColor;
+    _growingTextView.layer.borderWidth  = .5f;
+    _growingTextView.layer.borderColor  = [UIColor grayColor].CGColor;
     _growingTextView.textViewDelegate = self;
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGrowingTextView:)];
     [_growingTextView addGestureRecognizer:gesture];
@@ -95,10 +102,8 @@
     return [self.growingTextView resignFirstResponder];
 }
 
-- (void)setAppearance:(id<CRInputAppearance>)appearance
-{
-    _appearance = appearance;
-    
+- (void)setupAppearance
+{    
     if ([self.appearance respondsToSelector:@selector(returnKeyType)])
     {
         _returnKeyType  = [self.appearance returnKeyType];
