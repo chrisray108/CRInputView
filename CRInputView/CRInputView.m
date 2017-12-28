@@ -32,7 +32,6 @@
     if (self)
     {
         [self setupConstant];
-        [self setupToolBar];
     }
     return self;
 }
@@ -41,9 +40,9 @@
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
     self.frame = newSuperview.bounds;
+    [self setupToolBar];
     [self setupAppearance];
     [self setupBackgroundView];
-    
     [self moveToolBarToBottom:_toolBarBottomPaddingWhenKeyboardShow];
 }
 
@@ -106,6 +105,7 @@
 {
     _toolBar = [[CRInputToolBar alloc] initWithFrame:CGRectZero];
     _toolBar.delegate = self;
+    _toolBar.appearance = self.appearance;
     [self addSubview:_toolBar];
 }
 
@@ -170,13 +170,6 @@
         _toolBarBottomPaddingWhenKeyboardHide = [self.appearance toolBarBottomPaddingWhenKeyboardHide];
     }
 }
-
-- (void)setAppearance:(id<CRInputAppearance>)appearance
-{
-    _appearance = appearance;
-    self.toolBar.appearance = appearance;
-}
-
 
 - (void)onTap:(UITapGestureRecognizer *)gesture
 {
