@@ -16,11 +16,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupNav];
+    
     CRInputView *inputView  = [[CRInputView alloc] initWithFrame:CGRectZero];
     inputView.appearance = self;
     inputView.action = self;
     [self.view addSubview:inputView];
 }
+
+- (void)setupNav
+{
+    self.navigationItem.title = @"ViewController";
+}
+
 
 
 #pragma mark - CRInputAppearance

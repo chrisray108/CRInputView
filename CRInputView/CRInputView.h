@@ -14,8 +14,26 @@
 
 @property (nonatomic, weak) id<CRInputAction> action;
 
+
+/**
+ *  弹出键盘
+ */
+- (void)showKeyboard;
+
+/**
+ *  隐藏键盘
+ */
+- (void)hideKeyboard;
+
+
+/**
+ *  将输入栏挪到指定高度
+ */
 - (void)moveToolBarToBottom:(CGFloat)bottom;
 
+/**
+ *  输入栏颜色
+ */
 - (void)send;
 
 @end

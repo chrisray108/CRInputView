@@ -85,9 +85,13 @@
     }
 }
 
+- (BOOL)becomeFirstResponder
+{
+    return [self.growingTextView becomeFirstResponder];
+}
+
 - (BOOL)resignFirstResponder
 {
-    [super resignFirstResponder];
     return [self.growingTextView resignFirstResponder];
 }
 

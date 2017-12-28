@@ -32,20 +32,22 @@
         [self setupConstant];
         [self setupBackgroundView];
         [self setupToolBar];
-        [self addListener];
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [self removeListener];
-}
 
-
-- (void)didMoveToWindow
+- (void)willMoveToWindow:(nullable UIWindow *)newWindow
 {
-    [self moveToolBarToBottom:0];
+    if (newWindow)
+    {
+        [self moveToolBarToBottom:0];
+        [self addListener];
+    }
+    else
+    {
+        [self removeListener];
+    }
 }
 
 - (void)setupConstant
@@ -90,12 +92,27 @@
     [self addSubview:_toolBar];
 }
 
+
+- (void)showKeyboard
+{
+    [self.toolBar becomeFirstResponder];
+}
+
+
+- (void)hideKeyboard
+{
+    [self.toolBar resignFirstResponder];
+}
+
+
 - (void)moveToolBarToBottom:(CGFloat)bottom
 {
     CGPoint orign = {0, self.bounds.size.height - bottom - self.toolBar.bounds.size.height};
     CGRect frame = {orign, self.toolBar.frame.size};
     self.toolBar.frame = frame;
 }
+
+
 
 
 
