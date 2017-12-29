@@ -49,6 +49,10 @@
             +----------------------------------------------------------+
 */
 
+/**
+ *  键盘弹出后整个页面的背景色
+ */
+- (UIColor *)inputViewBackgroundColor;
 
 /**
  *  输入栏颜色
@@ -56,9 +60,37 @@
 - (UIColor *)toolBarBackgroundColor;
 
 /**
- *  键盘弹出后整个页面的背景色
+ *  键盘输入框内部背景色
  */
-- (UIColor *)inputViewBackgroundColor;
+- (UIColor *)textViewBackgroundColor;
+
+/**
+ *  键盘输入框圆角弧度
+ */
+- (CGFloat)textViewCornerRadius;
+
+/**
+ *  键盘输入框框边的宽度
+ */
+- (CGFloat)textViewBorderWidth;
+
+
+/**
+ *  键盘输入框框颜色
+ */
+- (UIColor *)textViewBorderColor;
+
+
+/**
+ *  输入的字体
+ */
+- (UIFont *)inputFont;
+
+/**
+ *  输入的字体颜色
+ */
+- (UIColor *)inputTextColor;
+
 
 /**
  *  输入框距整个输入栏的边距，改变输入框大小请改变 minNumberOfLines 的值，
@@ -86,10 +118,6 @@
  */
 - (NSAttributedString *)placeHolder;
 
-/**
- *  输入框字体
- */
-- (UIFont *)inputFont;
 
 /**
  *  当键盘要弹起时，输入框距离底部的距离

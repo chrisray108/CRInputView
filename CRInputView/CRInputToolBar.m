@@ -14,7 +14,12 @@
     UIReturnKeyType _returnKeyType;
     NSInteger _maxNumberOfLines;
     NSInteger _minNumberOfLines;
-    UIFont *_inputFont;
+    UIFont  *_inputFont;
+    UIColor *_inputTextColor;
+    UIColor *_textViewBackgroundColor;
+    CGFloat _textViewCornerRadius;
+    CGFloat _textViewBorderWidth;
+    UIColor *_textViewBorderColor;
 }
 
 @property (nonatomic, strong) CRGrowingTextView *growingTextView;
@@ -46,7 +51,13 @@
 {
     _maxNumberOfLines = 6;
     _minNumberOfLines = 4;
-    _inputFont = [UIFont systemFontOfSize:14.0f];
+    _inputFont      = [UIFont systemFontOfSize:14.0f];
+    _inputTextColor = [UIColor blackColor];
+    
+    _textViewBackgroundColor  = [UIColor whiteColor];
+    _textViewCornerRadius = 5.f;
+    _textViewBorderWidth  = .5f;
+    _textViewBorderColor  = [UIColor grayColor];
 }
 
 - (NSString *)text
@@ -72,11 +83,6 @@
 - (void)setupGrowingTextView
 {
     _growingTextView = [[CRGrowingTextView alloc] initWithFrame:CGRectZero];
-    _growingTextView.textColor = [UIColor blackColor];
-    _growingTextView.backgroundColor = [UIColor whiteColor];
-    _growingTextView.layer.cornerRadius = 5.f;
-    _growingTextView.layer.borderWidth  = .5f;
-    _growingTextView.layer.borderColor  = [UIColor grayColor].CGColor;
     _growingTextView.textViewDelegate = self;
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGrowingTextView:)];
     [_growingTextView addGestureRecognizer:gesture];
@@ -120,6 +126,27 @@
     {
         _inputFont = [self.appearance inputFont];
     }
+    if ([self.appearance respondsToSelector:@selector(textViewBackgroundColor)])
+    {
+        _textViewBackgroundColor = [self.appearance textViewBackgroundColor];
+    }
+    if ([self.appearance respondsToSelector:@selector(inputTextColor)])
+    {
+        _inputTextColor = [self.appearance inputTextColor];
+    }
+    if ([self.appearance respondsToSelector:@selector(textViewCornerRadius)])
+    {
+        _textViewCornerRadius = [self.appearance textViewCornerRadius];
+    }
+    if ([self.appearance respondsToSelector:@selector(textViewBorderWidth)])
+    {
+        _textViewBorderWidth = [self.appearance textViewBorderWidth];
+    }
+    if ([self.appearance respondsToSelector:@selector(textViewBorderColor)])
+    {
+        _textViewBorderColor = [self.appearance textViewBorderColor];
+    }
+    
     NSAttributedString *placeHolder = nil;
     if ([self.appearance respondsToSelector:@selector(placeHolder)])
     {
@@ -131,6 +158,13 @@
     self.growingTextView.minNumberOfLines = _minNumberOfLines;    
     self.growingTextView.placeholderAttributedText = placeHolder;
     self.growingTextView.returnKeyType = _returnKeyType;
+    self.growingTextView.backgroundColor = _textViewBackgroundColor;
+    self.growingTextView.textColor = _inputTextColor;
+    self.growingTextView.layer.cornerRadius = _textViewCornerRadius;
+    self.growingTextView.layer.borderWidth  = _textViewBorderWidth;
+    self.growingTextView.layer.borderColor  = _textViewBorderColor.CGColor;
+
+    
     CGRect frame = {CGPointZero,[_growingTextView intrinsicContentSize]};
     _growingTextView.frame = frame;
 

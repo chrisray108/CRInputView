@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		20ADBE42F3FC889B024A90B0E02DB56A /* CRInputView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 102C274BB50981AE2B45ECFB278E022E /* CRInputView-dummy.m */; };
+		2FD0D3DA6DB65DCA9B9E4527D6C3E177 /* CRGrowingInternalTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BBA5F0356F0E83B6A57013EA38786B /* CRGrowingInternalTextView.m */; };
+		51481AD563C35D32B8A3B48F45BE8B74 /* CRInputToolBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 1516FDFE8CF0EFA3075EA9CD730486F9 /* CRInputToolBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60F0F6190E7D21F4079C6749EA9245AF /* CRGrowingTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C2F13B57552DF55BC26366D6F100729 /* CRGrowingTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6300DEFC9F7F0031BD847F9F744E58A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		6942B6B3E4CF6E86A496255D97366CD2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		B21954C7B559120B18D3DE374A4F5B9A /* CRInputToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D8317C7B69BD00D46B6E0FDB34AB7FD4 /* CRInputToolBar.m */; };
+		B783736C4D0E40E2B38DEC90686861B8 /* CRGrowingInternalTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6048956F30E9C1D441D32ED09E77BE4F /* CRGrowingInternalTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8D3F7E96DAA592198B3096154AD30D3 /* CRGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E7DBB8C8F3B406BCAF14DBA343DBD2 /* CRGrowingTextView.m */; };
+		C1BB9AA4ADD22D86D54C670CD180970B /* CRInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DFCABF090EA627C1F3401032CBDCC7 /* CRInputView.m */; };
+		E82D1A297AF4E1326B7ED941B1248616 /* CRInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = FCD02927D8FAB6B3D3DE0D3D0FE1C68D /* CRInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA047924CF88C359514CB2BE2C0CFC23 /* CRInputDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = B5DE7A9056A977B176C85225C5782841 /* CRInputDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4C5D16F454AE5847BE3F6215E06EC28 /* Pods-CRInputViewSample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E77BE22A46A1D7757E3FB919ACF93 /* Pods-CRInputViewSample-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		03DC38B17EAE9F228AA9B55A7AB1CC07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D3B42F51FF4DED66587E42A35B8C1CD;
+			remoteInfo = CRInputView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0CEB275FB78E698B739E5A3B226E1831 /* Pods-CRInputViewSample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CRInputViewSample-acknowledgements.plist"; sourceTree = "<group>"; };
+		0F28CC3468AE06D6E623D04437B6F840 /* Pods-CRInputViewSample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CRInputViewSample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		102C274BB50981AE2B45ECFB278E022E /* CRInputView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CRInputView-dummy.m"; sourceTree = "<group>"; };
+		1516FDFE8CF0EFA3075EA9CD730486F9 /* CRInputToolBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CRInputToolBar.h; path = CRInputView/CRInputToolBar.h; sourceTree = "<group>"; };
+		1A6C5DD26B9BDDDA3A4C1E4A682B4831 /* Pods-CRInputViewSample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CRInputViewSample-resources.sh"; sourceTree = "<group>"; };
+		2717539669D9D0F191D978A011D725DC /* Pods-CRInputViewSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CRInputViewSample.release.xcconfig"; sourceTree = "<group>"; };
+		4F0EFF271CA6E6320D9333689767B0AF /* Pods-CRInputViewSample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CRInputViewSample-frameworks.sh"; sourceTree = "<group>"; };
+		5C2F13B57552DF55BC26366D6F100729 /* CRGrowingTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CRGrowingTextView.h; sourceTree = "<group>"; };
+		6048956F30E9C1D441D32ED09E77BE4F /* CRGrowingInternalTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CRGrowingInternalTextView.h; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		78BBA5F0356F0E83B6A57013EA38786B /* CRGrowingInternalTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRGrowingInternalTextView.m; sourceTree = "<group>"; };
+		8C02A8CA3469A2428EA0746D36022E5B /* libCRInputView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libCRInputView.a; path = libCRInputView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F3DA3C6D5D4C0A1AF743F74B604EA1E /* Pods-CRInputViewSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CRInputViewSample.debug.xcconfig"; sourceTree = "<group>"; };
+		A2E7DBB8C8F3B406BCAF14DBA343DBD2 /* CRGrowingTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRGrowingTextView.m; sourceTree = "<group>"; };
+		B0DE3075D3C598CBE075E6784647A5DE /* CRInputView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CRInputView-prefix.pch"; sourceTree = "<group>"; };
+		B1DFCABF090EA627C1F3401032CBDCC7 /* CRInputView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CRInputView.m; path = CRInputView/CRInputView.m; sourceTree = "<group>"; };
+		B5DE7A9056A977B176C85225C5782841 /* CRInputDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CRInputDefine.h; path = CRInputView/CRInputDefine.h; sourceTree = "<group>"; };
+		C77E77BE22A46A1D7757E3FB919ACF93 /* Pods-CRInputViewSample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CRInputViewSample-dummy.m"; sourceTree = "<group>"; };
+		D8317C7B69BD00D46B6E0FDB34AB7FD4 /* CRInputToolBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CRInputToolBar.m; path = CRInputView/CRInputToolBar.m; sourceTree = "<group>"; };
+		DA96F2A78B7C5D89C42EE8782D5286EF /* CRInputView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CRInputView.xcconfig; sourceTree = "<group>"; };
+		ED339663917B2BDE7BFAC25998381007 /* libPods-CRInputViewSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-CRInputViewSample.a"; path = "libPods-CRInputViewSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCD02927D8FAB6B3D3DE0D3D0FE1C68D /* CRInputView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CRInputView.h; path = CRInputView/CRInputView.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		02C29F04160C632DB9F64B0E7A9A5EE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6942B6B3E4CF6E86A496255D97366CD2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B16DBB5A66559DA46738059334621B82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6300DEFC9F7F0031BD847F9F744E58A2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		445C4B3B3C9E847DB73D1CF2B35BED7C /* CRInputView */ = {
+			isa = PBXGroup;
+			children = (
+				B5DE7A9056A977B176C85225C5782841 /* CRInputDefine.h */,
+				1516FDFE8CF0EFA3075EA9CD730486F9 /* CRInputToolBar.h */,
+				D8317C7B69BD00D46B6E0FDB34AB7FD4 /* CRInputToolBar.m */,
+				FCD02927D8FAB6B3D3DE0D3D0FE1C68D /* CRInputView.h */,
+				B1DFCABF090EA627C1F3401032CBDCC7 /* CRInputView.m */,
+				455EB0A3CE5DB7D842976CC27B999281 /* GrowingTextView */,
+				83B0EFE8F8594E6D0EE172A558086953 /* Support Files */,
+			);
+			name = CRInputView;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		455EB0A3CE5DB7D842976CC27B999281 /* GrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				6048956F30E9C1D441D32ED09E77BE4F /* CRGrowingInternalTextView.h */,
+				78BBA5F0356F0E83B6A57013EA38786B /* CRGrowingInternalTextView.m */,
+				5C2F13B57552DF55BC26366D6F100729 /* CRGrowingTextView.h */,
+				A2E7DBB8C8F3B406BCAF14DBA343DBD2 /* CRGrowingTextView.m */,
+			);
+			name = GrowingTextView;
+			path = CRInputView/GrowingTextView;
+			sourceTree = "<group>";
+		};
+		4B165EF40ECB7B19A72091F248811809 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C02A8CA3469A2428EA0746D36022E5B /* libCRInputView.a */,
+				ED339663917B2BDE7BFAC25998381007 /* libPods-CRInputViewSample.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4BE9687FA0966774C840A82B7669C930 /* Pods-CRInputViewSample */ = {
+			isa = PBXGroup;
+			children = (
+				0F28CC3468AE06D6E623D04437B6F840 /* Pods-CRInputViewSample-acknowledgements.markdown */,
+				0CEB275FB78E698B739E5A3B226E1831 /* Pods-CRInputViewSample-acknowledgements.plist */,
+				C77E77BE22A46A1D7757E3FB919ACF93 /* Pods-CRInputViewSample-dummy.m */,
+				4F0EFF271CA6E6320D9333689767B0AF /* Pods-CRInputViewSample-frameworks.sh */,
+				1A6C5DD26B9BDDDA3A4C1E4A682B4831 /* Pods-CRInputViewSample-resources.sh */,
+				9F3DA3C6D5D4C0A1AF743F74B604EA1E /* Pods-CRInputViewSample.debug.xcconfig */,
+				2717539669D9D0F191D978A011D725DC /* Pods-CRInputViewSample.release.xcconfig */,
+			);
+			name = "Pods-CRInputViewSample";
+			path = "Target Support Files/Pods-CRInputViewSample";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				96120C3F43914145CB6AF21F7B80DD7C /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				4B165EF40ECB7B19A72091F248811809 /* Products */,
+				E6E8091E1007F80D8DFAF6379E36995C /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		83B0EFE8F8594E6D0EE172A558086953 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA96F2A78B7C5D89C42EE8782D5286EF /* CRInputView.xcconfig */,
+				102C274BB50981AE2B45ECFB278E022E /* CRInputView-dummy.m */,
+				B0DE3075D3C598CBE075E6784647A5DE /* CRInputView-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "CRInputViewSample/Pods/Target Support Files/CRInputView";
+			sourceTree = "<group>";
+		};
+		96120C3F43914145CB6AF21F7B80DD7C /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				445C4B3B3C9E847DB73D1CF2B35BED7C /* CRInputView */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E6E8091E1007F80D8DFAF6379E36995C /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4BE9687FA0966774C840A82B7669C930 /* Pods-CRInputViewSample */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		866615D0E2BAC4A2D73C5F388AC45BC7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B783736C4D0E40E2B38DEC90686861B8 /* CRGrowingInternalTextView.h in Headers */,
+				60F0F6190E7D21F4079C6749EA9245AF /* CRGrowingTextView.h in Headers */,
+				EA047924CF88C359514CB2BE2C0CFC23 /* CRInputDefine.h in Headers */,
+				51481AD563C35D32B8A3B48F45BE8B74 /* CRInputToolBar.h in Headers */,
+				E82D1A297AF4E1326B7ED941B1248616 /* CRInputView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0AEC64AFD0327587BF415F6953DB0087 /* Pods-CRInputViewSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 360AD21134B474E0A0F29668865A372B /* Build configuration list for PBXNativeTarget "Pods-CRInputViewSample" */;
+			buildPhases = (
+				67A488356D68315456B52CD54E227972 /* Sources */,
+				02C29F04160C632DB9F64B0E7A9A5EE1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C182529F057C77BF37973EF38382E418 /* PBXTargetDependency */,
+			);
+			name = "Pods-CRInputViewSample";
+			productName = "Pods-CRInputViewSample";
+			productReference = ED339663917B2BDE7BFAC25998381007 /* libPods-CRInputViewSample.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7D3B42F51FF4DED66587E42A35B8C1CD /* CRInputView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BC7FF32E72B2A842B666308C9039507 /* Build configuration list for PBXNativeTarget "CRInputView" */;
+			buildPhases = (
+				4576B971B1DC877C2F4D9A9B1432909F /* Sources */,
+				B16DBB5A66559DA46738059334621B82 /* Frameworks */,
+				866615D0E2BAC4A2D73C5F388AC45BC7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CRInputView;
+			productName = CRInputView;
+			productReference = 8C02A8CA3469A2428EA0746D36022E5B /* libCRInputView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 4B165EF40ECB7B19A72091F248811809 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7D3B42F51FF4DED66587E42A35B8C1CD /* CRInputView */,
+				0AEC64AFD0327587BF415F6953DB0087 /* Pods-CRInputViewSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4576B971B1DC877C2F4D9A9B1432909F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FD0D3DA6DB65DCA9B9E4527D6C3E177 /* CRGrowingInternalTextView.m in Sources */,
+				B8D3F7E96DAA592198B3096154AD30D3 /* CRGrowingTextView.m in Sources */,
+				B21954C7B559120B18D3DE374A4F5B9A /* CRInputToolBar.m in Sources */,
+				20ADBE42F3FC889B024A90B0E02DB56A /* CRInputView-dummy.m in Sources */,
+				C1BB9AA4ADD22D86D54C670CD180970B /* CRInputView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67A488356D68315456B52CD54E227972 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4C5D16F454AE5847BE3F6215E06EC28 /* Pods-CRInputViewSample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C182529F057C77BF37973EF38382E418 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CRInputView;
+			target = 7D3B42F51FF4DED66587E42A35B8C1CD /* CRInputView */;
+			targetProxy = 03DC38B17EAE9F228AA9B55A7AB1CC07 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		20844FF2BB851FE4A505B696BB9EC88E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2717539669D9D0F191D978A011D725DC /* Pods-CRInputViewSample.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		880B46BF9841099D2DD0D93985AFF095 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F3DA3C6D5D4C0A1AF743F74B604EA1E /* Pods-CRInputViewSample.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		C4F25C7ECF2BB946BFECCAEE1169E216 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA96F2A78B7C5D89C42EE8782D5286EF /* CRInputView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/CRInputView/CRInputView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C604F78EA59A1412840868375E506DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA96F2A78B7C5D89C42EE8782D5286EF /* CRInputView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/CRInputView/CRInputView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0BC7FF32E72B2A842B666308C9039507 /* Build configuration list for PBXNativeTarget "CRInputView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C604F78EA59A1412840868375E506DCA /* Debug */,
+				C4F25C7ECF2BB946BFECCAEE1169E216 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */,
+				B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		360AD21134B474E0A0F29668865A372B /* Build configuration list for PBXNativeTarget "Pods-CRInputViewSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				880B46BF9841099D2DD0D93985AFF095 /* Debug */,
+				20844FF2BB851FE4A505B696BB9EC88E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

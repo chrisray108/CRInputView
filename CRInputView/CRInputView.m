@@ -62,8 +62,8 @@
 - (void)setupConstant
 {
     _growingTextViewEdgeInset = UIEdgeInsetsMake(10, 10, 10, 10);
-    _toolBarBackgroundColor   = [UIColor lightGrayColor];
     _inputViewBackgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.5];
+    _toolBarBackgroundColor   = [UIColor lightGrayColor];
     _toolBarBottomPaddingWhenKeyboardShow = 0;
     _toolBarBottomPaddingWhenKeyboardHide = 0;
 }
