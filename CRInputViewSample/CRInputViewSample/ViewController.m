@@ -7,19 +7,43 @@
 //
 
 #import "ViewController.h"
-#import "CRInputView.h"
-@interface ViewController ()<CRInputAppearance,CRInputAction>
+#import "WBAppearance.h"
+#import "WBInputView.h"
+
+@interface ViewController ()<CRInputAction>
+
+@property (nonatomic,strong) WBAppearance *weiboAppearance;
 
 @end
 
 @implementation ViewController
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self)
+    {
+        //微博外观初始化
+        _weiboAppearance = [[WBAppearance alloc] init];
+    }
+    return self;
+}
+
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    //微博外观初始化
+    _weiboAppearance = [[WBAppearance alloc] init];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNav];
     
-    CRInputView *inputView  = [[CRInputView alloc] initWithFrame:CGRectZero];
-    inputView.appearance = self;
+    WBInputView *inputView  = [[WBInputView alloc] initWithFrame:CGRectZero];
+    inputView.appearance = self.weiboAppearance;
     inputView.action = self;
     [self.view addSubview:inputView];
 }
@@ -32,49 +56,6 @@
 
 
 #pragma mark - CRInputAppearance
-- (UIEdgeInsets)growingTextViewEdgeInset
-{
-    return UIEdgeInsetsMake(10, 10, 50, 80);
-}
-
-- (UIReturnKeyType)returnKeyType
-{
-    return UIReturnKeyDone;
-}
-
-- (NSInteger)maxNumberOfLines
-{
-    return 4;
-}
-
-- (NSInteger)minNumberOfLines
-{
-    return 3;
-}
-
-- (NSAttributedString *)placeHolder
-{
-    return [[NSAttributedString alloc] initWithString:@"请输入文本"];
-}
-
-- (UIColor *)inputViewBackgroundColor
-{
-    return [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
-}
-
-- (UIFont *)inputFont
-{
-    return [UIFont systemFontOfSize:11.f];
-}
-
-/**
- *  键盘输入框内部背景色
- */
-- (UIColor *)textViewBackgroundColor
-{
-    return [UIColor yellowColor];
-}
-
 
 #pragma mark - CRInputAction
 - (void)didSendText:(NSString *)text
