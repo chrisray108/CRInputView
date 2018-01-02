@@ -10,9 +10,7 @@
 #define CRInputDefine_h
 #import <UIKit/UIKit.h>
 
-@protocol CRInputAppearance<NSObject>
 
-@optional
 
 
 /**
@@ -49,6 +47,28 @@
             +----------------------------------------------------------+
 */
 
+
+@protocol CRInputHierarchy<NSObject>
+
+/**
+ *  输入栏初始化完成后的回调，可以在这个回调里为 toolBar 添加一些自定义视图
+ */
+- (void)didSetupToolBar:(UIView *)toolBar;
+
+/**
+ *  *  已经重置输入栏的大小和位置，实现这个回调做一些自己视图的布局
+ */
+- (void)didResizeToolBar:(UIView *)toolBar;
+
+
+@end
+
+
+
+
+@protocol CRInputAppearance<CRInputHierarchy>
+
+@optional
 /**
  *  键盘弹出后整个页面的背景色
  */
@@ -143,6 +163,5 @@
 - (void)didSendText:(NSString *)text;
 
 @end
-
 
 #endif /* CRInputDefine_h */

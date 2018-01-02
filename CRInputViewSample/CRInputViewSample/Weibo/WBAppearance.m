@@ -8,11 +8,15 @@
 
 #import "WBAppearance.h"
 
+@interface WBAppearance()
+
+@end
+
 @implementation WBAppearance
 
 - (UIEdgeInsets)growingTextViewEdgeInset
 {
-    return UIEdgeInsetsMake(10, 10, 50, 80);
+    return UIEdgeInsetsMake(10, 10, 54, 50);
 }
 
 - (UIReturnKeyType)returnKeyType
@@ -42,7 +46,7 @@
 
 - (UIFont *)inputFont
 {
-    return [UIFont systemFontOfSize:11.f];
+    return [UIFont systemFontOfSize:14.f];
 }
 
 - (UIColor *)textViewBackgroundColor
@@ -50,6 +54,41 @@
     return [UIColor yellowColor];
 }
 
+- (void)didSetupToolBar:(UIView *)toolBar
+{
+    self.actionBar = [[WBInputActionBar alloc] initWithFrame:CGRectZero];
+    [toolBar addSubview:self.actionBar];
+}
 
+
+- (void)didResizeToolBar:(UIView *)toolBar
+{
+    CGFloat bottom = 0.f;
+    CGFloat height  = 44.f;
+    CGFloat left  = 0.f;
+    CGFloat right = 0.f;
+    
+    CGFloat originX = left;
+    CGFloat originY = toolBar.frame.size.height - bottom - height;
+    CGFloat width   = toolBar.frame.size.width  - left - right;
+    
+    CGRect frame = {originX,originY,width,height};
+    self.actionBar.frame = frame;
+}
+
+@end
+
+
+@implementation WBInputActionBar
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        self.backgroundColor = [UIColor redColor];
+    }
+    return self;
+}
 
 @end

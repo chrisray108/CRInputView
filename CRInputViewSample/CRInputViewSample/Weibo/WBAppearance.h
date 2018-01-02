@@ -8,6 +8,17 @@
 
 #import "CRInputDefine.h"
 
-@interface WBAppearance : NSObject<CRInputAppearance>
+@interface WBInputActionBar : UIView
 
 @end
+
+@interface WBAppearance : NSObject<CRInputAppearance>
+
+@property(nonatomic, strong) WBInputActionBar *actionBar;
+
+@end
+
+
+
+
+

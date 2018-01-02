@@ -7,6 +7,7 @@
 //
 
 #import "CRInputDefine.h"
+#import "CRInputToolBar.h"
 
 /**
  *  输入控件
@@ -22,6 +23,7 @@
  *  动作反馈
  */
 @property (nonatomic, weak) id<CRInputAction> action;
+
 
 /**
  *  输入栏控件位置大小
@@ -50,3 +52,7 @@
 - (void)send;
 
 @end
+
+
+
+

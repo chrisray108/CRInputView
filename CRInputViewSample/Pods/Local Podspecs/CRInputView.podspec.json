@@ -1,6 +1,6 @@
 {
   "name": "CRInputView",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "summary": "Easy Growing Input View",
   "homepage": "https://github.com/chrisray108",
   "license": {
@@ -10,7 +10,7 @@
   "authors": "Chris",
   "source": {
     "git": "https://github.com/chrisray108/CRInputView.git",
-    "tag": "0.0.6"
+    "tag": "0.0.7"
   },
   "platforms": {
     "ios": "8.0"

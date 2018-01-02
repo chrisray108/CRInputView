@@ -41,10 +41,14 @@
 {
     self.frame = newSuperview.bounds;
     [self setupToolBar];
+    [self callbackDidSetupToolBar];
+    
     [self setupAppearance];
     [self setupBackgroundView];
     [self moveToolBarToBottom:_toolBarBottomPaddingWhenKeyboardShow];
+    [self callbackDidResizeToolBar];
 }
+
 
 
 - (void)willMoveToWindow:(nullable UIWindow *)newWindow
@@ -223,6 +227,23 @@
         return NO;
     }
     return YES;
+}
+
+#pragma mark - Callback
+- (void)callbackDidSetupToolBar
+{
+    if([self.appearance respondsToSelector:@selector(didSetupToolBar:)])
+    {
+        [self.appearance didSetupToolBar:self.toolBar];
+    }
+}
+
+- (void)callbackDidResizeToolBar
+{
+    if([self.appearance respondsToSelector:@selector(didResizeToolBar:)])
+    {
+        [self.appearance didResizeToolBar:self.toolBar];
+    }
 }
 
 @end

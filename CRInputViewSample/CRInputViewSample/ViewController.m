@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "CRInputView.h"
 #import "WBAppearance.h"
-#import "WBInputView.h"
 
 @interface ViewController ()<CRInputAction>
 
@@ -42,7 +42,7 @@
     [super viewDidLoad];
     [self setupNav];
     
-    WBInputView *inputView  = [[WBInputView alloc] initWithFrame:CGRectZero];
+    CRInputView *inputView  = [[CRInputView alloc] initWithFrame:CGRectZero];
     inputView.appearance = self.weiboAppearance;
     inputView.action = self;
     [self.view addSubview:inputView];

@@ -14,7 +14,6 @@
 		8356702D1FF63A57003BD963 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8356702B1FF63A57003BD963 /* LaunchScreen.storyboard */; };
 		835670301FF63A57003BD963 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8356702F1FF63A57003BD963 /* main.m */; };
 		8356703C1FF64B57003BD963 /* WBAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 8356703B1FF64B56003BD963 /* WBAppearance.m */; };
-		8356703F1FF64C0F003BD963 /* WBInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8356703E1FF64C0F003BD963 /* WBInputView.m */; };
 		BA3655D60029A93DBB7E86A2 /* libPods-CRInputViewSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2FDBB0CE1420F817BA7681D /* libPods-CRInputViewSample.a */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +30,6 @@
 		8356702F1FF63A57003BD963 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8356703A1FF64B56003BD963 /* WBAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAppearance.h; sourceTree = "<group>"; };
 		8356703B1FF64B56003BD963 /* WBAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAppearance.m; sourceTree = "<group>"; };
-		8356703D1FF64C0F003BD963 /* WBInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBInputView.h; sourceTree = "<group>"; };
-		8356703E1FF64C0F003BD963 /* WBInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBInputView.m; sourceTree = "<group>"; };
 		CBD6BE84B06611B74774962C /* Pods-CRInputViewSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRInputViewSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CRInputViewSample/Pods-CRInputViewSample.release.xcconfig"; sourceTree = "<group>"; };
 		D2FDBBEEFE5FBAAA169EEDB9 /* Pods-CRInputViewSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRInputViewSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CRInputViewSample/Pods-CRInputViewSample.debug.xcconfig"; sourceTree = "<group>"; };
 		E2FDBB0CE1420F817BA7681D /* libPods-CRInputViewSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CRInputViewSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,8 +87,6 @@
 			children = (
 				8356703A1FF64B56003BD963 /* WBAppearance.h */,
 				8356703B1FF64B56003BD963 /* WBAppearance.m */,
-				8356703D1FF64C0F003BD963 /* WBInputView.h */,
-				8356703E1FF64C0F003BD963 /* WBInputView.m */,
 			);
 			path = Weibo;
 			sourceTree = "<group>";
@@ -240,7 +235,6 @@
 			files = (
 				835670251FF63A57003BD963 /* ViewController.m in Sources */,
 				835670301FF63A57003BD963 /* main.m in Sources */,
-				8356703F1FF64C0F003BD963 /* WBInputView.m in Sources */,
 				8356703C1FF64B57003BD963 /* WBAppearance.m in Sources */,
 				835670221FF63A57003BD963 /* AppDelegate.m in Sources */,
 			);
