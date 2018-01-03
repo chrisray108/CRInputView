@@ -42,9 +42,9 @@
     self.frame = newSuperview.bounds;
     [self setupToolBar];
     [self callbackDidSetupToolBar];
-    
-    [self setupAppearance];
     [self setupBackgroundView];
+    
+    [self setupAppearance];    
     [self moveToolBarToBottom:_toolBarBottomPaddingWhenKeyboardShow];
     [self callbackDidResizeToolBar];
 }

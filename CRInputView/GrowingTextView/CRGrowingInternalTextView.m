@@ -36,6 +36,11 @@
     [self updatePlaceholder];
 }
 
+- (void)setFrame:(CGRect)frame
+{
+    [super setFrame:frame];
+}
+
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
     if(action ==@selector(copy:) ||

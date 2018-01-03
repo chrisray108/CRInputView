@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		834BF0A81FFCB6FB007E530F /* WBAppearance.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 834BF0A71FFCB6FB007E530F /* WBAppearance.bundle */; };
 		835670221FF63A57003BD963 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 835670211FF63A57003BD963 /* AppDelegate.m */; };
 		835670251FF63A57003BD963 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 835670241FF63A57003BD963 /* ViewController.m */; };
 		835670281FF63A57003BD963 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 835670261FF63A57003BD963 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		834BF0A71FFCB6FB007E530F /* WBAppearance.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WBAppearance.bundle; sourceTree = "<group>"; };
 		8356701D1FF63A57003BD963 /* CRInputViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CRInputViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		835670201FF63A57003BD963 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		835670211FF63A57003BD963 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		835670391FF64B56003BD963 /* Weibo */ = {
 			isa = PBXGroup;
 			children = (
+				834BF0A71FFCB6FB007E530F /* WBAppearance.bundle */,
 				8356703A1FF64B56003BD963 /* WBAppearance.h */,
 				8356703B1FF64B56003BD963 /* WBAppearance.m */,
 			);
@@ -169,6 +172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				834BF0A81FFCB6FB007E530F /* WBAppearance.bundle in Resources */,
 				8356702D1FF63A57003BD963 /* LaunchScreen.storyboard in Resources */,
 				8356702A1FF63A57003BD963 /* Assets.xcassets in Resources */,
 				835670281FF63A57003BD963 /* Main.storyboard in Resources */,
