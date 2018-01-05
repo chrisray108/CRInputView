@@ -13,27 +13,27 @@
 @protocol CRGrowingTextViewDelegate <NSObject>
 @optional
 
-- (BOOL)shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)replacementText;
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)replacementText;
 
-- (BOOL)shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)range;
+- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)range;
 
-- (BOOL)shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)range;
+- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)range;
 
-- (void)textViewDidBeginEditing:(CRGrowingTextView *)growingTextView;
+- (void)textViewDidBeginEditing:(UITextView *)textView;
 
-- (void)textViewDidChangeSelection:(CRGrowingTextView *)growingTextView;
+- (void)textViewDidChangeSelection:(UITextView *)textView;
 
-- (void)textViewDidEndEditing:(CRGrowingTextView *)growingTextView;
+- (void)textViewDidEndEditing:(UITextView *)textView;
 
-- (BOOL)textViewShouldBeginEditing:(CRGrowingTextView *)growingTextView;
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView;
 
-- (BOOL)textViewShouldEndEditing:(CRGrowingTextView *)growingTextView;
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView;
 
-- (void)textViewDidChange:(CRGrowingTextView *)growingTextView;
+- (void)textViewDidChange:(UITextView *)textView;
 
-- (void)willChangeHeight:(CGFloat)height;
+- (void)textView:(UITextView *)textView willChangeHeight:(CGFloat)height;
 
-- (void)didChangeHeight:(CGFloat)height;
+- (void)textView:(UITextView *)textView didChangeHeight:(CGFloat)height;
 
 @end
 

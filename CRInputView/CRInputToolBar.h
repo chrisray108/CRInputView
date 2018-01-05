@@ -12,17 +12,17 @@
 
 @optional
 
-- (BOOL)textViewShouldBeginEditing;
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView;
 
-- (void)textViewDidEndEditing;
+- (void)textViewDidEndEditing:(UITextView *)textView;
 
-- (BOOL)shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)replacementText;
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)replacementText;
 
-- (void)textViewDidChange;
+- (void)textViewDidChange:(UITextView *)textView;
 
-- (void)toolBarWillChangeHeight:(CGFloat)height;
+- (void)textView:(UITextView *)textView willChangeHeight:(CGFloat)height;
 
-- (void)toolBarDidChangeHeight:(CGFloat)height;
+- (void)textView:(UITextView *)textView didChangeHeight:(CGFloat)height;
 
 @end
 

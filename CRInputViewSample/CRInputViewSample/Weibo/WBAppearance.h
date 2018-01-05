@@ -7,6 +7,7 @@
 //
 
 #import "CRInputDefine.h"
+#import "WBInputMoreContainner.h"
 
 @interface WBInputActionBar : UIView
 
@@ -33,6 +34,8 @@
 
 @end
 
+
+
 @interface WBAppearance : NSObject<CRInputAppearance>
 
 /*输入动作条*/
@@ -42,9 +45,13 @@
 @property(nonatomic, strong) UIButton *sendButton;
 
 /*全屏按钮*/
-@property(nonatomic, strong) UIButton *fullScreenButton;
+@property(nonatomic, strong) UIButton *fullscreenButton;
+
+/*更多面板*/
+@property(nonatomic, strong) WBInputMoreContainner *moreContainer;
 
 @end
+
 
 
 

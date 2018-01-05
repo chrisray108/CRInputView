@@ -113,17 +113,28 @@
     [self addSubview:_toolBar];
 }
 
+- (BOOL)becomeFirstResponder
+{
+    return [self.toolBar becomeFirstResponder];
+}
+
+- (BOOL)resignFirstResponder
+{
+    return [self.toolBar resignFirstResponder];
+}
+
+
 
 - (void)showKeyboard
 {
     [self moveToolBarToBottom:_toolBarBottomPaddingWhenKeyboardShow];
-    [self.toolBar becomeFirstResponder];
+    [self becomeFirstResponder];
 }
 
 
 - (void)hideKeyboard
 {
-    [self.toolBar resignFirstResponder];
+    [self resignFirstResponder];
 }
 
 
@@ -179,7 +190,7 @@
 {
     if (gesture.state == UIGestureRecognizerStateEnded)
     {
-        [self.toolBar resignFirstResponder];
+        [self resignFirstResponder];
     }
 }
 
@@ -204,7 +215,7 @@
 }
 
 #pragma mark - CRInputToolBarDelegate
-- (void)toolBarWillChangeHeight:(CGFloat)height
+- (void)textView:(UITextView *)textView willChangeHeight:(CGFloat)height
 {
     CRInputToolBar *toolBar = self.toolBar;
     CGFloat toolBarHeight = toolBar.frame.size.height - toolBar.growingTextFrame.size.height + height;
@@ -214,7 +225,7 @@
     self.toolBar.frame = frame;
 }
 
-- (BOOL)shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     UIReturnKeyType returnKeyType = UIReturnKeyDefault;
     if ([self.appearance respondsToSelector:@selector(returnKeyType)])
@@ -227,6 +238,31 @@
         return NO;
     }
     return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    if ([self.appearance respondsToSelector:@selector(didChangeTextView:)])
+    {
+        [self.appearance didChangeTextView:textView];
+    }
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    if ([self.appearance respondsToSelector:@selector(shouldBeginEditing:)])
+    {
+        return [self.appearance shouldBeginEditing:textView];
+    }
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([self.appearance respondsToSelector:@selector(didEndEditing:)])
+    {
+        [self.appearance didEndEditing:textView];
+    }
 }
 
 #pragma mark - Callback

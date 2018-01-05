@@ -172,51 +172,55 @@
 
 
 #pragma mark - CRGrowingTextViewDelegate
-- (BOOL)shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)replacementText
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)replacementText
 {
     BOOL should = YES;
-    if ([self.delegate respondsToSelector:@selector(shouldChangeTextInRange:replacementText:)]) {
-        should = [self.delegate shouldChangeTextInRange:range replacementText:replacementText];
+    if ([self.delegate respondsToSelector:@selector(textView:shouldChangeTextInRange:replacementText:)]) {
+        should = [self.delegate textView:textView shouldChangeTextInRange:range replacementText:replacementText];
     }
     return should;
 }
 
 
-- (BOOL)textViewShouldBeginEditing:(CRGrowingTextView *)growingTextView
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
     BOOL should = YES;
-    if ([self.delegate respondsToSelector:@selector(textViewShouldBeginEditing)]) {
-        should = [self.delegate textViewShouldBeginEditing];
+    if ([self.delegate respondsToSelector:@selector(textViewShouldBeginEditing:)])
+    {
+        should = [self.delegate textViewShouldBeginEditing:textView];
     }
     return should;
 }
 
-- (void)textViewDidEndEditing:(CRGrowingTextView *)growingTextView
+- (void)textViewDidEndEditing:(UITextView *)textView
 {
-    if ([self.delegate respondsToSelector:@selector(textViewDidEndEditing)]) {
-        [self.delegate textViewDidEndEditing];
+    if ([self.delegate respondsToSelector:@selector(textViewDidEndEditing:)])
+    {
+        [self.delegate textViewDidEndEditing:textView];
     }
 }
 
 
-- (void)textViewDidChange:(CRGrowingTextView *)growingTextView
+- (void)textViewDidChange:(UITextView *)textView
 {
-    if ([self.delegate respondsToSelector:@selector(textViewDidChange)]) {
-        [self.delegate textViewDidChange];
+    if ([self.delegate respondsToSelector:@selector(textViewDidChange:)])
+    {
+        [self.delegate textViewDidChange:textView];
     }
 }
 
-- (void)willChangeHeight:(CGFloat)height
+- (void)textView:(UITextView *)textView willChangeHeight:(CGFloat)height
 {
-    if ([self.delegate respondsToSelector:@selector(toolBarWillChangeHeight:)]) {
-        [self.delegate toolBarWillChangeHeight:height];
+    if ([self.delegate respondsToSelector:@selector(textView:willChangeHeight:)])
+    {
+        [self.delegate textView:textView willChangeHeight:height];
     }
 }
 
-- (void)didChangeHeight:(CGFloat)height
+- (void)textView:(UITextView *)textView didChangeHeight:(CGFloat)height
 {
-    if ([self.delegate respondsToSelector:@selector(toolBarDidChangeHeight:)]) {
-        [self.delegate toolBarDidChangeHeight:height];
+    if ([self.delegate respondsToSelector:@selector(textView:didChangeHeight:)]) {
+        [self.delegate textView:textView didChangeHeight:height];
     }
 }
 

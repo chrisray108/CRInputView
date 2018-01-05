@@ -14,6 +14,8 @@
 
 @property (nonatomic,strong) WBAppearance *weiboAppearance;
 
+@property (nonatomic,strong) CRInputView *inputTextView;
+
 @end
 
 @implementation ViewController
@@ -42,15 +44,27 @@
     [super viewDidLoad];
     [self setupNav];
     
-    CRInputView *inputView  = [[CRInputView alloc] initWithFrame:CGRectZero];
-    inputView.appearance = self.weiboAppearance;
-    inputView.action = self;
-    [self.view addSubview:inputView];
+    self.inputTextView  = [[CRInputView alloc] initWithFrame:CGRectZero];
+    self.inputTextView.appearance = self.weiboAppearance;
+    self.inputTextView.action = self;
+    self.inputTextView.hidden = YES;
+    [self.view addSubview:self.inputTextView];
 }
 
 - (void)setupNav
 {
-    self.navigationItem.title = @"ViewController";
+    self.navigationItem.title = @"长按出键盘";
+    UILongPressGestureRecognizer *gestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longpress:)];
+    [self.navigationController.navigationBar addGestureRecognizer:gestureRecognizer];
+}
+
+- (void)longpress:(UIGestureRecognizer *)gesture
+{
+    if (gesture.state == UIGestureRecognizerStateBegan)
+    {
+        [self.inputTextView showKeyboard];
+        self.inputTextView.hidden = NO;
+    }
 }
 
 

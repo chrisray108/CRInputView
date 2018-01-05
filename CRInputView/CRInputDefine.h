@@ -48,7 +48,8 @@
 */
 
 
-@protocol CRInputHierarchy<NSObject>
+@protocol CRInputEvent<NSObject>
+@optional
 
 /**
  *  输入栏初始化完成后的回调，可以在这个回调里为 toolBar 添加一些自定义视图
@@ -56,9 +57,25 @@
 - (void)didSetupToolBar:(UIView *)toolBar;
 
 /**
- *  *  已经重置输入栏的大小和位置，实现这个回调做一些自己视图的布局
+ *  已经重置输入栏的大小和位置，实现这个回调做一些自己视图的布局
  */
 - (void)didResizeToolBar:(UIView *)toolBar;
+
+/**
+ *  TextView的内容改变事件回调
+ */
+- (void)didChangeTextView:(UITextView *)textView;
+
+/**
+ *  是否开始编辑文字
+ */
+- (BOOL)shouldBeginEditing:(UITextView *)textView;
+
+/**
+ *  是否开始编辑文字
+ */
+- (void)didEndEditing:(UITextView *)textView;
+
 
 
 @end
@@ -66,7 +83,7 @@
 
 
 
-@protocol CRInputAppearance<CRInputHierarchy>
+@protocol CRInputAppearance<CRInputEvent>
 
 @optional
 /**

@@ -180,8 +180,8 @@
     
     if((int)oldScrollViewFrame.size.height != (int)newScrollViewFrame.size.height && newScrollViewFrame.size.height <= self.maxHeight) {
         [self flashScrollIndicators];
-        if ([self.textViewDelegate respondsToSelector:@selector(willChangeHeight:)]) {
-            [self.textViewDelegate willChangeHeight:newScrollViewFrame.size.height];
+        if ([self.textViewDelegate respondsToSelector:@selector(textView:willChangeHeight:)]) {
+            [self.textViewDelegate textView:self.textView willChangeHeight:newScrollViewFrame.size.height];
         }
     }
     self.frame = newScrollViewFrame;
@@ -190,8 +190,8 @@
         [self scrollToBottom];
     }
     
-    if ((int)oldScrollViewFrame.size.height != (int)newScrollViewFrame.size.height && [self.textViewDelegate respondsToSelector:@selector(didChangeHeight:)]) {
-        [self.textViewDelegate didChangeHeight:newScrollViewFrame.size.height];
+    if ((int)oldScrollViewFrame.size.height != (int)newScrollViewFrame.size.height && [self.textViewDelegate respondsToSelector:@selector(textView:didChangeHeight:)]) {
+        [self.textViewDelegate textView:self.textView didChangeHeight:newScrollViewFrame.size.height];
     }
     
     [self invalidateIntrinsicContentSize];
@@ -228,24 +228,24 @@
 #pragma mark - UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    if ([self.textViewDelegate respondsToSelector:@selector(shouldChangeTextInRange:replacementText:)]) {
-        return [self.textViewDelegate shouldChangeTextInRange:range replacementText:text];
+    if ([self.textViewDelegate respondsToSelector:@selector(textView:shouldChangeTextInRange:replacementText:)]) {
+        return [self.textViewDelegate textView:self.textView shouldChangeTextInRange:range replacementText:text];
     }
     return YES;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange
 {
-    if ([self.textViewDelegate respondsToSelector:@selector(shouldInteractWithURL:inRange:)]) {
-        return [self.textViewDelegate shouldInteractWithURL:URL inRange:characterRange];
+    if ([self.textViewDelegate respondsToSelector:@selector(textView:shouldInteractWithURL:inRange:)]) {
+        return [self.textViewDelegate textView:self.textView shouldInteractWithURL:URL inRange:characterRange];
     }
     return YES;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange
 {
-    if ([self.textViewDelegate respondsToSelector:@selector(shouldInteractWithTextAttachment:inRange:)]) {
-        return [self.textViewDelegate shouldInteractWithTextAttachment:textAttachment inRange:characterRange];
+    if ([self.textViewDelegate respondsToSelector:@selector(textView:shouldInteractWithTextAttachment:inRange:)]) {
+        return [self.textViewDelegate textView:self.textView shouldInteractWithTextAttachment:textAttachment inRange:characterRange];
     }
     return YES;
 }
@@ -253,28 +253,28 @@
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     if ([self.textViewDelegate respondsToSelector:@selector(textViewDidBeginEditing:)]) {
-        [self.textViewDelegate textViewDidBeginEditing:self];
+        [self.textViewDelegate textViewDidBeginEditing:self.textView];
     }
 }
 
 - (void)textViewDidChangeSelection:(UITextView *)textView
 {
     if ([self.textViewDelegate respondsToSelector:@selector(textViewDidChangeSelection:)]) {
-        [self.textViewDelegate textViewDidChangeSelection:self];
+        [self.textViewDelegate textViewDidChangeSelection:self.textView];
     }
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     if ([self.textViewDelegate respondsToSelector:@selector(textViewDidEndEditing:)]) {
-        [self.textViewDelegate textViewDidEndEditing:self];
+        [self.textViewDelegate textViewDidEndEditing:self.textView];
     }
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
     if ([self.textViewDelegate respondsToSelector:@selector(textViewShouldBeginEditing:)]) {
-       return [self.textViewDelegate textViewShouldBeginEditing:self];
+       return [self.textViewDelegate textViewShouldBeginEditing:self.textView];
     }
     return YES;
 }
@@ -283,7 +283,7 @@
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView
 {
     if ([self.textViewDelegate respondsToSelector:@selector(textViewShouldEndEditing:)]) {
-        return [self.textViewDelegate textViewShouldEndEditing:self];
+        return [self.textViewDelegate textViewShouldEndEditing:self.textView];
     }
     return YES;
 }
@@ -291,7 +291,7 @@
 - (void)textViewDidChange:(UITextView *)textView
 {
     if ([self.textViewDelegate respondsToSelector:@selector(textViewDidChange:)]) {
-        [self.textViewDelegate textViewDidChange:self];
+        [self.textViewDelegate textViewDidChange:self.textView];
     }
     [self fitToScrollView];
 }
