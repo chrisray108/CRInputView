@@ -323,7 +323,7 @@
 - (void)setText:(NSString *)text
 {
     self.textView.text = text;
-    [self fitToScrollView];
+    [self textViewDidChange:self.textView];
 }
 
 - (UIFont *)font
