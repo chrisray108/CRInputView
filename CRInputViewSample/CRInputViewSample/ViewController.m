@@ -12,7 +12,7 @@
 #import "InputMoreContainer.h"
 #import "InputEmoticonContainer.h"
 
-@interface ViewController ()<CRInputAction>
+@interface ViewController ()<CRInputAction,WBAppearanceEventDelegate>
 
 @property (nonatomic,strong) WBAppearance *weiboAppearance;
 
@@ -25,12 +25,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    //微博外观初始化
-    _weiboAppearance = [[WBAppearance alloc] init];
-    //外观安装额外表情菜单
-    _weiboAppearance.emoticonContainer = [[InputEmoticonContainer alloc] initWithFrame:CGRectZero];
-    //外观安装额外更多菜单
-    _weiboAppearance.moreContainer = [[InputMoreContainer alloc] initWithFrame:CGRectZero];
+    [self setUpAppearance];
 }
 
 
@@ -46,6 +41,19 @@
     self.navigationItem.title = @"长按出键盘";
     UILongPressGestureRecognizer *gestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longpress:)];
     [self.navigationController.navigationBar addGestureRecognizer:gestureRecognizer];
+}
+
+- (void)setUpAppearance
+{
+    //微博外观初始化
+    _weiboAppearance = [[WBAppearance alloc] init];
+    //微博外观事件代理
+    _weiboAppearance.eventDelegate = self;
+    //外观安装额外表情菜单
+    _weiboAppearance.emoticonContainer = [[InputEmoticonContainer alloc] initWithFrame:CGRectZero];
+    //外观安装额外更多菜单
+    _weiboAppearance.moreContainer = [[InputMoreContainer alloc] initWithFrame:CGRectZero];
+  
 }
 
 - (void)setUpInputTextView
@@ -67,13 +75,32 @@
 }
 
 
+#pragma mark - WBAppearanceEventDelegate
+- (void)onEventTouchPictureButton:(UIButton *)button
+{
+    NSLog(@"onEventTouchPictureButton");
+}
 
-#pragma mark - CRInputAppearance
+- (void)onEventTouchFullscreenButton:(UIButton *)button
+{
+    NSLog(@"onEventTouchFullscreenButton");
+}
+
+- (void)onEventTouchMentionButton:(UIButton *)button
+{
+    NSLog(@"onEventTouchMentionButton");
+}
+
+- (void)onEventTouchTrendButton:(UIButton *)button
+{
+    NSLog(@"onEventTouchTrendButton");
+}
 
 #pragma mark - CRInputAction
 - (void)didSendText:(NSString *)text
 {
-    NSLog(@"did send text %@",text);
+    NSString *forward = self.weiboAppearance.actionBar.isforward? @"YES" : @"NO";
+    NSLog(@"did send text %@ should foward:%@",text,forward);
 }
 
 

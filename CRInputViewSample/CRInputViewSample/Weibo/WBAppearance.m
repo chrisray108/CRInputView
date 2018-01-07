@@ -24,8 +24,38 @@ static UIImage * wb_imageInBundle(NSString *imageName)
 }
 
 
+@interface WBInputActionBar()
+
+/*转发选择框*/
+@property(nonatomic, strong) UIButton *forwardCheckbox;
+
+/*转发提示文案*/
+@property(nonatomic, strong) UILabel  *forwardLabel;
+
+/*图片按钮*/
+@property(nonatomic, strong) UIButton *picButton;
+
+/* @ 按钮*/
+@property(nonatomic, strong) UIButton *mentionButton;
+
+/* # 按钮*/
+@property(nonatomic, strong) UIButton *trendButton;
+
+/*表情按钮*/
+@property(nonatomic, strong) UIButton *emoticonButton;
+
+/*更多按钮*/
+@property(nonatomic, strong) UIButton *moreButton;
+@end
+
 
 @interface WBAppearance()
+
+/*发送按钮*/
+@property(nonatomic, strong) UIButton *sendButton;
+
+/*全屏按钮*/
+@property(nonatomic, strong) UIButton *fullscreenButton;
 
 @end
 
@@ -97,7 +127,9 @@ static UIImage * wb_imageInBundle(NSString *imageName)
     [self.actionBar.forwardCheckbox addTarget:self action:@selector(forwardCheck:) forControlEvents:UIControlEventTouchUpInside];
     [self.actionBar.emoticonButton addTarget:self action:@selector(onEmoticon:) forControlEvents:UIControlEventTouchUpInside];
     [self.actionBar.moreButton addTarget:self action:@selector(onMore:) forControlEvents:UIControlEventTouchUpInside];
-
+    [self.actionBar.picButton addTarget:self action:@selector(onPicture:) forControlEvents:UIControlEventTouchUpInside];
+    [self.actionBar.mentionButton addTarget:self action:@selector(onMention:) forControlEvents:UIControlEventTouchUpInside];
+    [self.actionBar.trendButton addTarget:self action:@selector(onTrend:) forControlEvents:UIControlEventTouchUpInside];
     [toolBar addSubview:self.actionBar];
     
     self.fullscreenButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -172,7 +204,10 @@ static UIImage * wb_imageInBundle(NSString *imageName)
 
 - (void)fullscreen:(UIButton *)button
 {
-    
+    if ([self.eventDelegate respondsToSelector:@selector(onEventTouchFullscreenButton:)])
+    {
+        [self.eventDelegate onEventTouchFullscreenButton:button];
+    }
 }
 
 - (void)forwardCheck:(UIButton *)button
@@ -186,11 +221,37 @@ static UIImage * wb_imageInBundle(NSString *imageName)
     [self toggleContainer:self.moreContainer toggleButton:button];
 }
 
+- (void)onPicture:(UIButton *)button
+{
+    if ([self.eventDelegate respondsToSelector:@selector(onEventTouchPictureButton:)])
+    {
+        [self.eventDelegate onEventTouchPictureButton:button];
+    }
+}
+
+- (void)onMention:(UIButton *)button
+{
+    if ([self.eventDelegate respondsToSelector:@selector(onEventTouchMentionButton:)])
+    {
+        [self.eventDelegate onEventTouchMentionButton:button];
+    }
+}
+
+- (void)onTrend:(UIButton *)button
+{
+    if ([self.eventDelegate respondsToSelector:@selector(onEventTouchTrendButton:)])
+    {
+        [self.eventDelegate onEventTouchTrendButton:button];
+    }
+}
+
 - (void)onEmoticon:(UIButton *)button
 {
     self.emoticonContainer.hidden = NO;
     [self toggleContainer:self.emoticonContainer toggleButton:button];
 }
+
+
 
 
 - (void)toggleContainer:(UIView *)container toggleButton:(UIButton *)button
@@ -338,7 +399,11 @@ static UIImage * wb_imageInBundle(NSString *imageName)
     [_moreButton setImage:wb_imageInBundle(@"wb_more_highlighted") forState:UIControlStateHighlighted];
     [_moreButton sizeToFit];
     [self addSubview:_moreButton];
-    
+}
+
+- (BOOL)isforward
+{
+    return self.forwardCheckbox.isSelected;
 }
 
     
