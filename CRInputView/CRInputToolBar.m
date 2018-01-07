@@ -108,6 +108,11 @@
     return [self.growingTextView resignFirstResponder];
 }
 
+- (BOOL)isFirstResponder
+{
+    return [self.growingTextView isFirstResponder];
+}
+
 - (void)setupAppearance
 {    
     if ([self.appearance respondsToSelector:@selector(returnKeyType)])

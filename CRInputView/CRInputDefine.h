@@ -52,6 +52,16 @@
 @optional
 
 /**
+ *  输入栏将要出现的回调
+ */
+- (void)toolBarWillShow:(UIView *)toolBar;
+
+/**
+ *  输入栏将要隐藏的回调
+ */
+- (void)toolBarWillHide:(UIView *)toolBar;
+
+/**
  *  输入栏初始化完成后的回调，可以在这个回调里为 toolBar 添加一些自定义视图
  */
 - (void)didSetupToolBar:(UIView *)toolBar;

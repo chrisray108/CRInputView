@@ -95,6 +95,7 @@ static UIImage * wb_imageInBundle(NSString *imageName)
     self.actionBar = [[WBInputActionBar alloc] initWithFrame:CGRectZero];
     self.actionBar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     [self.actionBar.forwardCheckbox addTarget:self action:@selector(forwardCheck:) forControlEvents:UIControlEventTouchUpInside];
+    [self.actionBar.emoticonButton addTarget:self action:@selector(onEmoticon:) forControlEvents:UIControlEventTouchUpInside];
     [self.actionBar.moreButton addTarget:self action:@selector(onMore:) forControlEvents:UIControlEventTouchUpInside];
 
     [toolBar addSubview:self.actionBar];
@@ -116,10 +117,51 @@ static UIImage * wb_imageInBundle(NSString *imageName)
     self.sendButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
     [toolBar addSubview:self.sendButton];
     
-    self.moreContainer = [[WBInputMoreContainner alloc] init];
     UIView *inputView = toolBar.superview;
-    [inputView addSubview:self.moreContainer];
+    if (self.emoticonContainer) [inputView insertSubview:self.emoticonContainer atIndex:0];
+    if (self.moreContainer) [inputView insertSubview:self.moreContainer atIndex:0];
 }
+
+
+- (void)didResizeToolBar:(UIView *)toolBar
+{
+    [self layoutActionBar:toolBar];
+    [self layoutFullscreenButton:toolBar];
+    [self layoutSendButton:toolBar];
+    [self layoutContainer:self.moreContainer toolBar:toolBar];
+    [self layoutContainer:self.emoticonContainer toolBar:toolBar];
+}
+
+- (void)didChangeTextView:(UITextView *)textView
+{
+    self.sendButton.enabled = textView.text.length;
+}
+
+- (BOOL)shouldBeginEditing:(UITextView *)textView
+{
+    [self hideContainer];
+    return YES;
+}
+
+- (void)toolBarWillHide:(UIView *)toolBar
+{
+    [self hideContainer];
+}
+
+
+- (void)hideContainer
+{
+    self.moreContainer.hidden = YES;
+    self.emoticonContainer.hidden = YES;
+    for (UIButton *button in self.actionBar.subviews)
+    {
+        if ([button respondsToSelector:@selector(setSelected:)])
+        {
+            [button setSelected:NO];
+        }
+    }
+}
+
 
 - (void)send:(UIButton *)button
 {
@@ -141,44 +183,60 @@ static UIImage * wb_imageInBundle(NSString *imageName)
 - (void)onMore:(UIButton *)button
 {
     self.moreContainer.hidden = NO;
+    [self toggleContainer:self.moreContainer toggleButton:button];
+}
+
+- (void)onEmoticon:(UIButton *)button
+{
+    self.emoticonContainer.hidden = NO;
+    [self toggleContainer:self.emoticonContainer toggleButton:button];
+}
+
+
+- (void)toggleContainer:(UIView *)container toggleButton:(UIButton *)button
+{
+    for (UIButton *actionButton in self.actionBar.subviews)
+    {
+        if (actionButton != button && [actionButton respondsToSelector:@selector(setSelected:)])
+        {
+            [actionButton setSelected:NO];
+        }
+    }
     button.selected = !button.selected;
-    UIView *actionBar   = button.superview;
-    UIView *toolBar     = actionBar.superview;
-    CRInputView *inputView = (CRInputView *)toolBar.superview;
+    
+    CRInputView *inputView = (CRInputView *)container.superview;
+    UIView *toolBar = self.actionBar.superview;
+    
     if (button.selected)
     {
+        [inputView insertSubview:container belowSubview:toolBar];
         [inputView resignFirstResponder];
         [UIView animateWithDuration:0.25 delay:0 options:7 animations:^{
-            [inputView moveToolBarToBottom:self.moreContainer.frame.size.height];
+            [inputView moveToolBarToBottom:container.frame.size.height];
         } completion:nil];
-        [self.moreContainer moveToBottom:0];
+        [self moveContainer:container toBottom:0];
     }
     else
     {
         [inputView becomeFirstResponder];
-        CGFloat bottom = toolBar.frame.size.height + self.moreContainer.frame.size.height;
-        [self.moreContainer moveToBottom:-bottom];
+        CGFloat bottom = toolBar.frame.size.height + container.frame.size.height;
+        [self moveContainer:container toBottom:-bottom];
     }
+
 }
 
-- (void)didResizeToolBar:(UIView *)toolBar
+- (void)moveContainer:(UIView *)container
+             toBottom:(CGFloat)bottom
 {
-    [self layoutActionBar:toolBar];
-    [self layoutFullscreenButton:toolBar];
-    [self layoutSendButton:toolBar];
-    [self layoutMoreContainer:toolBar];
+    //仿键盘动画
+    [UIView animateWithDuration:0.25 delay:0 options:7 animations:^{
+        CGPoint orign = {0, container.superview.bounds.size.height - bottom - container.bounds.size.height};
+        CGRect frame = {orign, container.frame.size};
+        container.frame = frame;
+    } completion:nil];
 }
 
-- (void)didChangeTextView:(UITextView *)textView
-{
-    self.sendButton.enabled = textView.text.length;
-}
 
-- (BOOL)shouldBeginEditing:(UITextView *)textView
-{
-    self.moreContainer.hidden = YES;
-    return YES;
-}
 
 - (void)layoutActionBar:(UIView *)toolBar
 {
@@ -211,11 +269,12 @@ static UIImage * wb_imageInBundle(NSString *imageName)
     self.sendButton.frame = frame;
 }
 
-- (void)layoutMoreContainer:(UIView *)toolBar
+- (void)layoutContainer:(UIView *)container
+                toolBar:(UIView *)toolBar
 {
-    CGSize size  = [self.moreContainer sizeThatFits:CGSizeMake(toolBar.frame.size.width, CGFLOAT_MAX)];
-    CGRect frame = {CGRectGetMaxY(toolBar.frame),0,size};
-    self.moreContainer.frame = frame;
+    CGSize size  = [container sizeThatFits:CGSizeMake(toolBar.frame.size.width, CGFLOAT_MAX)];
+    CGRect frame = {0,CGRectGetMaxY(toolBar.frame),size};
+    container.frame = frame;
 }
 
 @end

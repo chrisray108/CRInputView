@@ -7,7 +7,6 @@
 //
 
 #import "CRInputDefine.h"
-#import "WBInputMoreContainner.h"
 
 @interface WBInputActionBar : UIView
 
@@ -47,8 +46,11 @@
 /*全屏按钮*/
 @property(nonatomic, strong) UIButton *fullscreenButton;
 
-/*更多面板*/
-@property(nonatomic, strong) WBInputMoreContainner *moreContainer;
+/*表情面板，默认为nil*/
+@property(nonatomic, strong) UIView *emoticonContainer;
+
+/*更多面板，默认为nil*/
+@property(nonatomic, strong) UIView *moreContainer;
 
 @end
 

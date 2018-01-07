@@ -123,6 +123,10 @@
     return [self.toolBar resignFirstResponder];
 }
 
+- (BOOL)isFirstResponder
+{
+    return [self.toolBar isFirstResponder];
+}
 
 
 - (void)showKeyboard
@@ -134,15 +138,35 @@
 
 - (void)hideKeyboard
 {
+    [UIView animateWithDuration:0.25 delay:0 options:7 animations:^{
+        [self moveToolBarToBottom:_toolBarBottomPaddingWhenKeyboardHide];
+    } completion:nil];    
     [self resignFirstResponder];
 }
 
 
 - (void)moveToolBarToBottom:(CGFloat)bottom
 {
+    CGFloat bottomNow = self.bounds.size.height - CGRectGetMaxY(self.toolBar.frame);
+    if (bottomNow == _toolBarBottomPaddingWhenKeyboardHide && (bottom > bottomNow))
+    {
+        if ([self.appearance respondsToSelector:@selector(toolBarWillShow:)])
+        {
+            [self.appearance toolBarWillShow:self.toolBar];
+        }
+    }
+    if (bottom == _toolBarBottomPaddingWhenKeyboardHide && (bottomNow > bottom))
+    {
+        if ([self.appearance respondsToSelector:@selector(toolBarWillHide:)])
+        {
+            [self.appearance toolBarWillHide:self.toolBar];
+        }
+    }
+    
     CGPoint orign = {0, self.bounds.size.height - bottom - self.toolBar.bounds.size.height};
     CGRect frame = {orign, self.toolBar.frame.size};
     self.toolBar.frame = frame;
+    self.backgroundView.hidden = (bottom == _toolBarBottomPaddingWhenKeyboardHide);
 }
 
 
@@ -190,6 +214,9 @@
 {
     if (gesture.state == UIGestureRecognizerStateEnded)
     {
+        [UIView animateWithDuration:0.25 delay:0 options:7 animations:^{
+            [self moveToolBarToBottom:_toolBarBottomPaddingWhenKeyboardHide];
+        } completion:nil];
         [self resignFirstResponder];
     }
 }
@@ -198,10 +225,12 @@
 {
     NSDictionary *userInfo = notification.userInfo;
     CGRect endFrame   = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    BOOL isVisiable = endFrame.origin.y != [UIApplication sharedApplication].keyWindow.frame.size.height;
-    self.backgroundView.hidden = !isVisiable;
-    CGFloat keyboardHeight = isVisiable? endFrame.size.height: _toolBarBottomPaddingWhenKeyboardHide;
-    [self moveToolBarToBottom:keyboardHeight];
+    BOOL endIsVisiable = endFrame.origin.y != [UIApplication sharedApplication].keyWindow.frame.size.height;
+    if (endIsVisiable)
+    {
+        CGFloat keyboardHeight =  endFrame.size.height;
+        [self moveToolBarToBottom:keyboardHeight];
+    }
 }
 
 
