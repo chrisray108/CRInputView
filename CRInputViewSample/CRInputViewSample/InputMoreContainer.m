@@ -8,6 +8,14 @@
 
 #import "InputMoreContainer.h"
 
+/*这个是上层自己定制的一个容器类，用来展示更多的面板，这里只是一个例子*/
+
+@interface InputMoreContainer()
+
+@property (nonatomic,strong) UILabel *label;
+
+@end
+
 @implementation InputMoreContainer
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -15,7 +23,12 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        self.backgroundColor = [UIColor redColor];
+        _label = [[UILabel alloc] init];
+        _label.text = @"更  多  按  钮";
+        _label.font = [UIFont boldSystemFontOfSize:25.f];
+        [_label sizeToFit];
+        [self addSubview:_label];
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -25,6 +38,13 @@
 - (CGSize)sizeThatFits:(CGSize)size
 {
     return CGSizeMake(size.width, 300);
+}
+
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    _label.center = CGPointMake(self.bounds.size.width * .5f, self.bounds.size.height * .5f);
 }
 
 

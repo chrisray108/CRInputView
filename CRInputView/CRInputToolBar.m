@@ -7,7 +7,6 @@
 //
 
 #import "CRInputToolBar.h"
-#import "CRGrowingTextView.h"
 
 @interface CRInputToolBar ()<CRGrowingTextViewDelegate>
 {
@@ -60,25 +59,6 @@
     _textViewBorderColor  = [UIColor grayColor];
 }
 
-- (NSString *)text
-{
-    return self.growingTextView.text;
-}
-
-- (void)setText:(NSString *)text
-{
-    self.growingTextView.text = text;
-}
-
-- (CGRect)growingTextFrame
-{
-    return self.growingTextView.frame;
-}
-
-- (void)setGrowingTextFrame:(CGRect)growingTextFrame
-{
-    self.growingTextView.frame = growingTextFrame;
-}
 
 - (void)setupGrowingTextView
 {

@@ -7,6 +7,7 @@
 //
 
 #import "CRInputDefine.h"
+#import "CRGrowingTextView.h"
 
 @protocol CRInputToolBarDelegate <NSObject>
 
@@ -28,9 +29,7 @@
 
 @interface CRInputToolBar : UIView
 
-@property (nonatomic, copy) NSString *text;
-
-@property (nonatomic, assign) CGRect growingTextFrame;
+@property (nonatomic, strong, readonly) CRGrowingTextView *growingTextView;
 
 @property (nonatomic, weak) id<CRInputAppearance> appearance;
 

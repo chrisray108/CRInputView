@@ -20,8 +20,6 @@
 
 @property (nonatomic,strong) UIView *backgroundView;
 
-@property (nonatomic,strong) CRInputToolBar *toolBar;
-
 @end
 
 @implementation CRInputView
@@ -82,15 +80,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (CGRect)toolBarFrame
-{
-    return self.toolBar.frame;
-}
-
 - (void)send
 {
-    NSString *text = self.toolBar.text;
-    self.toolBar.text = @"";
+    NSString *text = self.toolBar.growingTextView.text;
+    self.toolBar.growingTextView.text = @"";
     if ([self.action respondsToSelector:@selector(didSendText:)]) {
         [self.action didSendText:text];
     }
@@ -179,13 +172,13 @@
     }
     CGFloat width  = [UIScreen mainScreen].bounds.size.width;
     
-    CGFloat height = self.toolBar.growingTextFrame.size.height + _growingTextViewEdgeInset.top + _growingTextViewEdgeInset.bottom;
+    CGFloat height = self.toolBar.growingTextView.frame.size.height + _growingTextViewEdgeInset.top + _growingTextViewEdgeInset.bottom;
     
     CGRect frame = {CGPointZero, width,height};
     self.toolBar.frame = frame;
     
     frame = UIEdgeInsetsInsetRect(self.toolBar.bounds, _growingTextViewEdgeInset);
-    self.toolBar.growingTextFrame = frame;
+    self.toolBar.growingTextView.frame = frame;
     
     
     if ([self.appearance respondsToSelector:@selector(toolBarBackgroundColor)])
@@ -247,8 +240,8 @@
 - (void)textView:(UITextView *)textView willChangeHeight:(CGFloat)height
 {
     CRInputToolBar *toolBar = self.toolBar;
-    CGFloat toolBarHeight = toolBar.frame.size.height - toolBar.growingTextFrame.size.height + height;
-    CGFloat toolBarOriginY = toolBar.frame.origin.y + toolBar.growingTextFrame.size.height - height;
+    CGFloat toolBarHeight = toolBar.frame.size.height - toolBar.growingTextView.frame.size.height + height;
+    CGFloat toolBarOriginY = toolBar.frame.origin.y + toolBar.growingTextView.frame.size.height - height;
     
     CGRect frame = {{toolBar.frame.origin.x, toolBarOriginY}, {toolBar.frame.size.width, toolBarHeight}};
     self.toolBar.frame = frame;

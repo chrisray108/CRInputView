@@ -177,14 +177,14 @@ static UIImage * wb_imageInBundle(NSString *imageName)
 
 - (void)toolBarWillHide:(UIView *)toolBar
 {
+    self.moreContainer.hidden = YES;
+    self.emoticonContainer.hidden = YES;
     [self hideContainer];
 }
 
 
 - (void)hideContainer
 {
-    self.moreContainer.hidden = YES;
-    self.emoticonContainer.hidden = YES;
     for (UIButton *button in self.actionBar.subviews)
     {
         if ([button respondsToSelector:@selector(setSelected:)])
@@ -358,7 +358,9 @@ static UIImage * wb_imageInBundle(NSString *imageName)
 {
     _forwardCheckbox = [UIButton buttonWithType:UIButtonTypeCustom];
     [_forwardCheckbox setImage:wb_imageInBundle(@"wb_checkbox_unchecked") forState:UIControlStateNormal];
+    [_forwardCheckbox setImage:wb_imageInBundle(@"wb_checkbox_unchecked") forState:UIControlStateHighlighted];
     [_forwardCheckbox setImage:wb_imageInBundle(@"wb_checkbox_checked") forState:UIControlStateSelected];
+    [_forwardCheckbox setImage:wb_imageInBundle(@"wb_checkbox_checked") forState:UIControlStateSelected | UIControlStateHighlighted];
     [_forwardCheckbox sizeToFit];
     [self addSubview:_forwardCheckbox];
     

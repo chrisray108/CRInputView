@@ -26,9 +26,9 @@
 
 
 /**
- *  输入栏控件位置大小
+ *  输入栏控件
  */
-@property (nonatomic, assign,readonly) CGRect toolBarFrame;
+@property (nonatomic,strong,readonly) CRInputToolBar *toolBar;
 
 
 /**
