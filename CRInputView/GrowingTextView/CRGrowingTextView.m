@@ -9,6 +9,7 @@
 #import "CRGrowingTextView.h"
 #import "CRGrowingInternalTextView.h"
 
+
 @interface CRGrowingTextView()<UITextViewDelegate>
 
 @property (nonatomic,strong) CRGrowingInternalTextView *textView;
@@ -21,7 +22,13 @@
 
 @end
 
+
+
+
+#pragma clang diagnostic ignored "-Wprotocol"
+#pragma clang diagnostic ignored "-Wobjc-protocol-property-synthesis"
 @implementation CRGrowingTextView
+
 
 #pragma mark - Override
 - (instancetype)initWithFrame:(CGRect)frame
@@ -63,6 +70,11 @@
 - (CGSize)intrinsicContentSize
 {
     return [self measureFrame:self.measureTextViewSize].size;
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector
+{
+    return self.textView;
 }
 
 
@@ -297,8 +309,6 @@
 }
 
 @end
-
-
 
 
 @implementation CRGrowingTextView(TextView)

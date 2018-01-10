@@ -37,7 +37,7 @@
 
 @end
 
-@interface CRGrowingTextView : UIScrollView
+@interface CRGrowingTextView : UIScrollView<UITextInput, UIContentSizeCategoryAdjusting>
 
 @property (nonatomic,weak) id<CRGrowingTextViewDelegate> textViewDelegate;
 
