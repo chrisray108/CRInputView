@@ -249,17 +249,25 @@
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    UIReturnKeyType returnKeyType = UIReturnKeyDefault;
-    if ([self.appearance respondsToSelector:@selector(returnKeyType)])
+    BOOL should = YES;
+    if ([self.appearance respondsToSelector:@selector(textView:shouldChangeTextInRange:replacementText:)])
     {
-        returnKeyType = [self.appearance returnKeyType];
+        should = [self.appearance textView:textView shouldChangeTextInRange:range replacementText:text];
     }
-    if ([text isEqualToString:@"\n"] && (returnKeyType != UIReturnKeyDefault && returnKeyType != UIReturnKeyNext))
+    if (should)
     {
-        [self send];
-        return NO;
+        UIReturnKeyType returnKeyType = UIReturnKeyDefault;
+        if ([self.appearance respondsToSelector:@selector(returnKeyType)])
+        {
+            returnKeyType = [self.appearance returnKeyType];
+        }
+        if ([text isEqualToString:@"\n"] && (returnKeyType != UIReturnKeyDefault && returnKeyType != UIReturnKeyNext))
+        {
+            [self send];
+            should = NO;
+        }
     }
-    return YES;
+    return should;
 }
 
 - (void)textViewDidChange:(UITextView *)textView

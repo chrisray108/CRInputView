@@ -87,6 +87,11 @@
 - (void)didEndEditing:(UITextView *)textView;
 
 
+/**
+ *  TextView 替换文字时的回调
+ */
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
+
 
 @end
 
